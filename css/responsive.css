@@ -143,4 +143,7 @@
     .stat-box h3 {
         font-size: 2rem;
     }
+    .testimonial-card {
+        min-width: 85vw;
+    }
 }
