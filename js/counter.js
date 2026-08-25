@@ -5,23 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animateCounter = (counter) => {
         const target = +counter.getAttribute('data-target');
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 16ms per frame (approx 60fps)
+        const duration = 2200;
+        const startTime = performance.now();
         
-        let current = 0;
+        // Easing function for smooth deceleration
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
         
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.innerText = Math.ceil(current) + '+';
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            
+            const current = Math.ceil(easedProgress * target);
+            
+            if (progress < 1) {
+                counter.innerText = current + '+';
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.innerText = target + '+';
-                if(target === 98) counter.innerText = target + '%'; // Exception for percentage
+                // Final display
+                if (target === 98) {
+                    counter.innerText = target + '%';
+                } else {
+                    counter.innerText = target + '+';
+                }
             }
         };
         
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     };
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -29,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 animateCounter(counter);
-                observer.unobserve(counter); // Only animate once
+                observer.unobserve(counter);
             }
         });
     }, {

@@ -1,12 +1,14 @@
-/* Responsive Design (Mobile First Approach) */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 
-/* Base (Mobile) */
+/* Base Mobile Defaults */
 .container {
     padding: 0 20px;
 }
 
 .section-padding {
-    padding: 60px 0;
+    padding: 72px 0;
 }
 
 .section-title {
@@ -15,13 +17,17 @@
 
 .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
 }
 
 /* Tablet (min-width: 768px) */
 @media (min-width: 768px) {
+    .container {
+        padding: 0 28px;
+    }
+
     .section-padding {
-        padding: 80px 0;
+        padding: 96px 0;
     }
 
     .section-title {
@@ -39,12 +45,18 @@
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    /* Specific section responsive styles will go here */
+
+    .spec-grid {
+        gap: 40px;
+    }
 }
 
 /* Laptop (min-width: 992px) */
 @media (min-width: 992px) {
+    .container {
+        padding: 0 32px;
+    }
+
     .hamburger {
         display: none;
     }
@@ -69,7 +81,11 @@
 /* Desktop (min-width: 1200px) */
 @media (min-width: 1200px) {
     .section-padding {
-        padding: 100px 0;
+        padding: 120px 0;
+    }
+
+    .section-title {
+        font-size: 3rem;
     }
 
     .grid-4 {
@@ -89,13 +105,15 @@
         left: -100%;
         width: 100%;
         height: calc(100vh - var(--nav-height));
-        background: var(--secondary);
+        background: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: var(--transition);
-        gap: 30px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        gap: 32px;
+        border-top: 1px solid rgba(201, 169, 110, 0.1);
     }
 
     .nav-menu.active {
@@ -103,47 +121,127 @@
     }
 
     .nav-link {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
     }
 
     .hamburger.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
     .hamburger.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .doctor-bio-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
-/* Specific Section Adjustments */
+/* Mobile-specific adjustments (max-width: 767px) */
 @media (max-width: 767px) {
     .hero-title {
         font-size: 2.5rem;
+        letter-spacing: -0.5px;
     }
     .hero-desc {
         font-size: 1rem;
     }
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
     }
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
     .ba-slider-container {
         height: 300px;
     }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
     .cta-buttons {
         flex-direction: column;
+        align-items: center;
     }
+
     .footer {
         text-align: center;
     }
     .social-links {
         justify-content: center;
     }
+
     .stat-box h3 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
+
     .testimonial-card {
         min-width: 85vw;
+    }
+
+    .spec-grid {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+    }
+
+    .carousel-control {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+    .carousel-control.prev { left: 16px; }
+    .carousel-control.next { right: 16px; }
+
+    .contact-form-container {
+        padding: 28px;
+    }
+
+    .doctor-bio {
+        padding: 28px;
+    }
+
+    .nav-logo img {
+        max-height: 55px;
+        max-width: 200px;
+    }
+
+    .floating-actions {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .fab {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Small mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        font-size: 0.9rem;
     }
 }

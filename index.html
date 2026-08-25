@@ -2,41 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SkinClue - Premium Dermatology & Aesthetic Clinic offering advanced skincare treatments, laser therapies, and anti-aging solutions.">
-    <meta property="og:title" content="SkinClue | Premium Dermatology Clinic">
-    <meta property="og:description" content="Healthy Skin Starts With Expert Care. Book your personalized consultation today.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="SkinClue - Advanced Skin and Hair Clinic specializing in Dermatology, Cosmetology, and Hair Restoration. Evidence-based treatment by qualified dermatologists.">
+    <meta property="og:title" content="SkinClue | Advanced Skin & Hair Clinic">
+    <meta property="og:description" content="The Secret to your Best Skin and Hair. Book your consultation with our board-certified dermatologists today.">
     <meta property="og:type" content="website">
-    <title>SkinClue | Premium Dermatology & Aesthetic Clinic</title>
+    <title>SkinClue | Advanced Skin & Hair Clinic — Dermatology • Cosmetology • Hair Restoration</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Icons (Phosphor Icons for a premium look) -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar reveal-up">
+    <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="nav-logo">
-                <img src="logo.png" alt="SkinClue Logo">
+                <img src="logo.png" alt="SkinClue - Advanced Skin & Hair Clinic">
             </a>
             
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#treatments" class="nav-link">Treatments</a></li>
-                <li><a href="#doctors" class="nav-link">Doctors</a></li>
+                <li><a href="#doctors" class="nav-link">Our Doctor</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="#contact" class="btn btn-primary nav-btn">Book Now</a></li>
             </ul>
 
-            <button class="hamburger" aria-label="Toggle Navigation">
+            <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -58,11 +58,14 @@
                 <div class="slide-bg"></div>
                 <div class="container slide-content">
                     <div class="hero-text reveal-up">
-                        <span class="section-subtitle">Premium Care</span>
-                        <h1 class="hero-title">Healthy Skin Starts With Expert Care</h1>
-                        <p class="hero-desc">Experience world-class dermatology and aesthetic treatments tailored to your unique skin needs.</p>
+                        <div class="hero-badge">
+                            <i class="ph-fill ph-diamond"></i>
+                            Advanced Skin & Hair Clinic
+                        </div>
+                        <h1 class="hero-title">The Secret to your <span class="gold">Best Skin</span> and Hair</h1>
+                        <p class="hero-desc">Experience evidence-based dermatology and aesthetic treatments by board-certified specialists. Your journey to radiant skin starts here.</p>
                         <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                            <a href="#contact" class="btn btn-primary">Book Consultation <i class="ph ph-arrow-right"></i></a>
                             <a href="#treatments" class="btn btn-secondary">Explore Treatments</a>
                         </div>
                     </div>
@@ -74,12 +77,34 @@
                 <div class="slide-bg slide-bg-2"></div>
                 <div class="container slide-content">
                     <div class="hero-text">
-                        <span class="section-subtitle">Advanced Technology</span>
-                        <h1 class="hero-title">Laser Hair Reduction</h1>
-                        <p class="hero-desc">Safe, painless, and effective laser treatments for long-lasting smoothness.</p>
+                        <div class="hero-badge">
+                            <i class="ph-fill ph-sparkle"></i>
+                            Hair Restoration
+                        </div>
+                        <h1 class="hero-title">Advanced <span class="gold">Hair Restoration</span> Solutions</h1>
+                        <p class="hero-desc">PRP therapy, hair transplantation, laser therapy, and stem cell therapy — comprehensive solutions for all hair concerns.</p>
                         <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Book Appointment</a>
-                            <a href="#treatments" class="btn btn-secondary">Learn More</a>
+                            <a href="#contact" class="btn btn-primary">Book Consultation <i class="ph ph-arrow-right"></i></a>
+                            <a href="#doctors" class="btn btn-secondary">Meet Our Doctor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <div class="slide-bg slide-bg-3"></div>
+                <div class="container slide-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <i class="ph-fill ph-star-four"></i>
+                            Cosmetology
+                        </div>
+                        <h1 class="hero-title">Premium <span class="gold">Cosmetic</span> Dermatology</h1>
+                        <p class="hero-desc">Laser treatments, chemical peels, hydrafacials, and skin brightening — personalized aesthetic solutions for every skin type.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary">Book Consultation <i class="ph ph-arrow-right"></i></a>
+                            <a href="#treatments" class="btn btn-secondary">View Treatments</a>
                         </div>
                     </div>
                 </div>
@@ -90,51 +115,76 @@
             <button class="carousel-control next" aria-label="Next Slide"><i class="ph ph-caret-right"></i></button>
             <div class="carousel-indicators"></div>
         </div>
-        <!-- Floating abstract shapes -->
+        <!-- Floating shapes -->
         <div class="shape shape-1 floating"></div>
         <div class="shape shape-2 floating-fast"></div>
         <div class="shape shape-3 floating-slow"></div>
+    </section>
+
+    <!-- Specializations Ribbon -->
+    <section class="specializations-ribbon">
+        <div class="container">
+            <div class="spec-grid reveal-up">
+                <div class="spec-item">
+                    <i class="ph-fill ph-stethoscope"></i>
+                    <span>Dermatology</span>
+                </div>
+                <div class="spec-item">
+                    <i class="ph-fill ph-sparkle"></i>
+                    <span>Cosmetology</span>
+                </div>
+                <div class="spec-item">
+                    <i class="ph-fill ph-user-focus"></i>
+                    <span>Hair Restoration</span>
+                </div>
+                <div class="spec-item">
+                    <i class="ph-fill ph-scissors"></i>
+                    <span>Skin Surgeries</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Why Choose Us -->
     <section id="features" class="features section-padding">
         <div class="container">
             <div class="section-header text-center reveal-up">
-                <span class="section-subtitle">SkinClue Advantage</span>
+                <span class="section-subtitle">The SkinClue Advantage</span>
+                <div class="gold-line"></div>
                 <h2 class="section-title">Why Choose SkinClue</h2>
-                <p>We combine medical expertise with luxury aesthetics to deliver exceptional results in a premium environment.</p>
+                <p>We combine evidence-based medical expertise with advanced aesthetics to deliver exceptional, transparent care in a premium clinical environment.</p>
             </div>
             
             <div class="grid-3">
                 <div class="feature-card reveal-up">
-                    <div class="feature-icon"><i class="ph-fill ph-stethoscope"></i></div>
-                    <h3>Experienced Dermatologists</h3>
-                    <p>Our board-certified doctors bring years of expertise to every treatment.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-certificate"></i></div>
+                    <h3>Board-Certified Specialist</h3>
+                    <p>Our dermatologist holds MD, FRGUHS qualifications with extensive training in clinical and aesthetic dermatology.</p>
                 </div>
                 <div class="feature-card reveal-up delay-100">
-                    <div class="feature-icon"><i class="ph-fill ph-users"></i></div>
-                    <h3>Personalized Consultation</h3>
-                    <p>Tailored treatment plans designed specifically for your skin type and goals.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-microscope"></i></div>
+                    <h3>Evidence-Based Care</h3>
+                    <p>Every treatment protocol is backed by scientific research and published clinical evidence — no aimless treatment.</p>
                 </div>
                 <div class="feature-card reveal-up delay-200">
-                    <div class="feature-icon"><i class="ph-fill ph-certificate"></i></div>
-                    <h3>FDA Approved Technology</h3>
-                    <p>We use only the latest, proven, and safest equipment globally available.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-shield-check"></i></div>
+                    <h3>Safe & Hygienic</h3>
+                    <p>We adhere to strict hygienic and sanitary protocols ensuring a clean and safe environment for a flawless patient experience.</p>
                 </div>
                 <div class="feature-card reveal-up">
-                    <div class="feature-icon"><i class="ph-fill ph-shield-check"></i></div>
-                    <h3>Safe & Effective</h3>
-                    <p>Stringent hygiene protocols ensure your safety during all procedures.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-users"></i></div>
+                    <h3>Personalized Protocols</h3>
+                    <p>Tailored treatment plans designed specifically for your skin type, goals, and lifestyle — because every skin is unique.</p>
                 </div>
                 <div class="feature-card reveal-up delay-100">
-                    <div class="feature-icon"><i class="ph-fill ph-currency-circle-dollar"></i></div>
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden costs. We believe in complete transparency with our patients.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-book-open-text"></i></div>
+                    <h3>Published Research</h3>
+                    <p>Our doctors have contributed to multiple national and international publications in reputed dermatology journals.</p>
                 </div>
                 <div class="feature-card reveal-up delay-200">
-                    <div class="feature-icon"><i class="ph-fill ph-smiley"></i></div>
-                    <h3>Thousands of Happy Clients</h3>
-                    <p>Join our community of satisfied patients who have achieved their skin goals.</p>
+                    <div class="feature-icon"><i class="ph-fill ph-handshake"></i></div>
+                    <h3>Complete Transparency</h3>
+                    <p>Honest guidance with transparent pricing. We provide evidence-based knowledge without incessant treatment.</p>
                 </div>
             </div>
         </div>
@@ -145,124 +195,143 @@
         <div class="container">
             <div class="section-header text-center reveal-up">
                 <span class="section-subtitle">Our Services</span>
+                <div class="gold-line"></div>
                 <h2 class="section-title">Premium Treatments</h2>
-                <p>Explore our comprehensive range of clinical and aesthetic solutions.</p>
+                <p>Comprehensive clinical and aesthetic dermatology solutions — from advanced skin care to hair restoration.</p>
             </div>
 
             <div class="grid-4">
+                <!-- Clinical Dermatology -->
                 <div class="treatment-card reveal-scale">
-                    <div class="treatment-img"><i class="ph ph-sparkle"></i></div>
+                    <div class="treatment-img"><i class="ph ph-stethoscope"></i></div>
                     <div class="treatment-content">
-                        <h3>Acne Treatment</h3>
-                        <p>Advanced protocols to clear active acne and prevent future breakouts.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
+                        <h3>Clinical Dermatology</h3>
+                        <p>Expert care for Psoriasis, Atopic Eczema, Acne, Lichen Planus, Fungal Infections, Warts & more.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
                     </div>
                 </div>
+                <!-- Laser Treatments -->
                 <div class="treatment-card reveal-scale delay-100">
                     <div class="treatment-img"><i class="ph ph-magic-wand"></i></div>
                     <div class="treatment-content">
-                        <h3>Laser Hair Removal</h3>
-                        <p>Painless and permanent hair reduction for all skin types.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
+                        <h3>Laser Treatments</h3>
+                        <p>Advanced laser therapies for hair removal, skin rejuvenation, pigmentation, and scar revision.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="treatment-card reveal-scale delay-200">
-                    <div class="treatment-img"><i class="ph ph-drop"></i></div>
-                    <div class="treatment-content">
-                        <h3>Hydra Facial</h3>
-                        <p>Deep cleansing, exfoliation, and intense hydration in one session.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="treatment-card reveal-scale delay-300">
-                    <div class="treatment-img"><i class="ph ph-hourglass-high"></i></div>
-                    <div class="treatment-content">
-                        <h3>Anti Aging</h3>
-                        <p>Botox, fillers, and advanced skin tightening treatments.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                </div>
-                <!-- Adding more to match the requirement -->
-                <div class="treatment-card reveal-scale">
-                    <div class="treatment-img"><i class="ph ph-aperture"></i></div>
-                    <div class="treatment-content">
-                        <h3>Pigmentation</h3>
-                        <p>Targeted laser therapies for melasma, sun spots, and uneven tone.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="treatment-card reveal-scale delay-100">
-                    <div class="treatment-img"><i class="ph ph-scissors"></i></div>
-                    <div class="treatment-content">
-                        <h3>Hair Loss / PRP</h3>
-                        <p>Stimulate hair growth with Platelet-Rich Plasma therapy.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                </div>
+                <!-- Chemical Peels -->
                 <div class="treatment-card reveal-scale delay-200">
                     <div class="treatment-img"><i class="ph ph-test-tube"></i></div>
                     <div class="treatment-content">
-                        <h3>Chemical Peel</h3>
-                        <p>Medical-grade peels for skin rejuvenation and texture improvement.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
+                        <h3>Chemical Peels</h3>
+                        <p>Medical-grade chemical peels for skin rejuvenation, texture improvement, and radiance restoration.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
                     </div>
                 </div>
+                <!-- Hydra Facial -->
+                <div class="treatment-card reveal-scale delay-300">
+                    <div class="treatment-img"><i class="ph ph-drop"></i></div>
+                    <div class="treatment-content">
+                        <h3>Hydrafacials</h3>
+                        <p>Deep cleansing, exfoliation, and intense hydration for immediately visible, glowing results.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- PRP Therapy -->
+                <div class="treatment-card reveal-scale">
+                    <div class="treatment-img"><i class="ph ph-syringe"></i></div>
+                    <div class="treatment-content">
+                        <h3>PRP Therapy</h3>
+                        <p>Platelet-Rich Plasma therapy to stimulate natural hair growth and skin rejuvenation.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Hair Transplantation -->
+                <div class="treatment-card reveal-scale delay-100">
+                    <div class="treatment-img"><i class="ph ph-scissors"></i></div>
+                    <div class="treatment-content">
+                        <h3>Hair Transplantation</h3>
+                        <p>Expert hair transplant surgery with advanced FUE techniques for natural-looking results.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Skin Surgeries -->
+                <div class="treatment-card reveal-scale delay-200">
+                    <div class="treatment-img"><i class="ph ph-first-aid-kit"></i></div>
+                    <div class="treatment-content">
+                        <h3>Skin Surgeries</h3>
+                        <p>Wart, corn & mole removal, skin biopsies, acne scar surgeries, and nail surgeries.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Skin Brightening -->
                 <div class="treatment-card reveal-scale delay-300">
                     <div class="treatment-img"><i class="ph ph-sun"></i></div>
                     <div class="treatment-content">
                         <h3>Skin Brightening</h3>
-                        <p>Glutathione IV drips and advanced brightening protocols.</p>
-                        <a href="#" class="btn-text">Read More <i class="ph ph-arrow-right"></i></a>
+                        <p>Advanced brightening protocols and treatments for even-toned, radiant complexion.</p>
+                        <a href="#contact" class="btn-text">Consult Now <i class="ph ph-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Doctors Section -->
+    <!-- Doctor Section -->
     <section id="doctors" class="doctors section-padding">
         <div class="container">
             <div class="section-header text-center reveal-up">
-                <span class="section-subtitle">Our Experts</span>
-                <h2 class="section-title">Meet Our Doctors</h2>
-                <p>Highly qualified dermatologists dedicated to your skin health.</p>
+                <span class="section-subtitle">Our Expert</span>
+                <div class="gold-line"></div>
+                <h2 class="section-title">Meet Our Doctor</h2>
+                <p>Board-certified dermatologist with extensive training in clinical dermatology, cosmetology, and hair restoration.</p>
             </div>
-            <div class="grid-3">
-                <div class="doctor-card reveal-up">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor_1.png" alt="Dr. Sarah Jenkins">
+
+            <!-- Doctor Bio Card -->
+            <div class="doctor-bio reveal-up">
+                <div class="doctor-bio-header">
+                    <div class="doctor-bio-img">
+                        <img src="assets/images/doctor_1.png" alt="Dr. Sajin Alexander">
                     </div>
-                    <div class="doctor-info">
-                        <h3>Dr. Sarah Jenkins</h3>
-                        <p class="qualification">MD Dermatology (AIIMS)</p>
-                        <p class="specialization">Aesthetic Dermatologist</p>
-                        <p class="experience">12+ Years Experience</p>
-                        <a href="#contact" class="btn btn-secondary btn-full">Book Appointment</a>
-                    </div>
-                </div>
-                <div class="doctor-card reveal-up delay-100">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor_2.png" alt="Dr. Michael Chen">
-                    </div>
-                    <div class="doctor-info">
-                        <h3>Dr. Michael Chen</h3>
-                        <p class="qualification">MBBS, DDVL</p>
-                        <p class="specialization">Laser Specialist</p>
-                        <p class="experience">8+ Years Experience</p>
-                        <a href="#contact" class="btn btn-secondary btn-full">Book Appointment</a>
+                    <div class="doctor-bio-meta">
+                        <h3>Dr. Sajin Alexander</h3>
+                        <p class="qualification">MBBS, MD (Dermatology, Venereology & Leprosy), FRGUHS (Aesthetic Dermatology)</p>
+                        <p class="role">Director & Chief Dermatologist</p>
                     </div>
                 </div>
-                <div class="doctor-card reveal-up delay-200">
-                    <div class="doctor-img">
-                        <img src="assets/images/doctor_3.png" alt="Dr. Emily Watson">
+
+                <p>Dr. Sajin Alexander is a board-certified Dermatologist with a fellowship in Aesthetic Dermatology from Rajiv Gandhi University of Health Sciences (RGUHS), Karnataka, with extensive experience in Clinical Dermatology, Cosmetology and Hair Restoration procedures.</p>
+                
+                <p>He is also trained in Hair Transplantation surgery and has more than 10 national and international publications in various journals and books. Having worked in close association with many renowned Dermatologists and institutes across the country, Dr. Sajin Alexander wants SkinClue to impart evidence-based knowledge and treatment options to patients for both aesthetic and clinical dermatology with utmost transparency.</p>
+
+                <!-- Publications -->
+                <div class="publications-section">
+                    <h4><i class="ph-fill ph-book-open"></i> Published Research & Books</h4>
+                    <ul class="publications-list">
+                        <li>Efficacy of fractional CO₂ laser with intralesional steroid in treatment of keloids — <em>J Cosmet Dermatol</em>, 2019</li>
+                        <li>Platelet-rich plasma in hair loss — Mechanism, preparation, and classification — <em>J Cosmet Dermatol</em>, 2022</li>
+                        <li>The mechanics of Follicular Unit Excision (FUE) — <em>Plastic and Reconstructive Surgery</em>, 2022</li>
+                    </ul>
+                    
+                    <div class="publications-expanded" id="pubExpanded">
+                        <ul class="publications-list">
+                            <li>Your Smartphone Camera: A Useful Tool in Hair Transplantation — <em>Hair Transplant Forum International</em>, 2023</li>
+                            <li>Role of low dose oral minoxidil in hair loss treatment — <em>CosmoDerma</em>, 2021</li>
+                            <li>Regenerative Medicine Treatments for Androgenetic Alopecia — <em>Indian J Plast Surg</em>, 2021</li>
+                            <li>Assistant editor: <em>Essentials of Practice Management in Dermatology and Plastic Surgery</em></li>
+                            <li>Assistant editor: <em>Doctor, Are you online?</em></li>
+                            <li>Assistant editor: <em>Fundamentals of Pathology of Skin — 5th Edition</em></li>
+                            <li>Chapter author: <em>IADVL Textbook of Acne Scars</em>, <em>Hair Transplantation 2nd Edition</em>, and more</li>
+                        </ul>
                     </div>
-                    <div class="doctor-info">
-                        <h3>Dr. Emily Watson</h3>
-                        <p class="qualification">MD Dermatology</p>
-                        <p class="specialization">Trichologist & Anti-Aging</p>
-                        <p class="experience">15+ Years Experience</p>
-                        <a href="#contact" class="btn btn-secondary btn-full">Book Appointment</a>
-                    </div>
+                    
+                    <button class="view-more-toggle" id="pubToggle" onclick="togglePublications()">
+                        View All Publications <i class="ph ph-caret-down"></i>
+                    </button>
+                </div>
+
+                <div style="text-align: center; margin-top: 36px;">
+                    <a href="#contact" class="btn btn-primary">Book Consultation with Dr. Sajin <i class="ph ph-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -273,25 +342,25 @@
         <div class="container grid-2 align-center">
             <div class="about-content reveal-left">
                 <span class="section-subtitle">About SkinClue</span>
-                <h2 class="section-title">Redefining Dermatology & Aesthetics</h2>
-                <p>At SkinClue, we believe that everyone deserves to feel confident in their own skin. Our clinic is a sanctuary where medical science meets luxury aesthetics.</p>
-                <p><strong>Mission:</strong> To provide safe, effective, and personalized dermatological care using state-of-the-art technology.</p>
-                <p><strong>Vision:</strong> To be the most trusted name in aesthetic medicine globally, setting benchmarks in patient care and results.</p>
+                <div class="gold-line" style="margin: 0 0 24px 0;"></div>
+                <h2 class="section-title">Advanced Dermatology & Aesthetic Excellence</h2>
+                <p>SkinClue is an advanced dermatology healthcare facility specializing in clinical dermatology, cosmetic dermatology, and hair restoration treatments. Our aim is to provide evidence-based knowledge to patients by qualified dermatologists — without incessant and aimless treatment.</p>
+                <p>We offer comprehensive solutions for various skin and hair conditions as well as aesthetic concerns, with services extending from clinical dermatology and laser treatments to hair transplantation and anti-aging protocols.</p>
             </div>
             <div class="about-stats grid-2 reveal-right">
-                <div class="stat-box glass">
-                    <h3 class="counter-value" data-target="5000">0</h3>
-                    <p>Happy Patients</p>
+                <div class="stat-box">
+                    <h3 class="counter-value" data-target="10">0</h3>
+                    <p>Years of Experience</p>
                 </div>
-                <div class="stat-box glass">
-                    <h3 class="counter-value" data-target="15">0</h3>
-                    <p>Years Experience</p>
+                <div class="stat-box">
+                    <h3 class="counter-value" data-target="10">0</h3>
+                    <p>Publications</p>
                 </div>
-                <div class="stat-box glass">
+                <div class="stat-box">
                     <h3 class="counter-value" data-target="25">0</h3>
-                    <p>Treatments</p>
+                    <p>Treatments Offered</p>
                 </div>
-                <div class="stat-box glass">
+                <div class="stat-box">
                     <h3 class="counter-value" data-target="98">0</h3>
                     <p>Patient Satisfaction</p>
                 </div>
@@ -302,16 +371,17 @@
     <!-- Before & After -->
     <section class="before-after section-padding">
         <div class="container text-center reveal-up">
-            <span class="section-subtitle">Real Results</span>
+            <span class="section-subtitle">Transformations</span>
+            <div class="gold-line"></div>
             <h2 class="section-title">Before & After</h2>
             
             <div class="ba-slider-container reveal-scale">
                 <div class="ba-slider">
                     <div class="ba-image ba-bottom-image">
-                        <img src="assets/images/after.png" alt="After Treatment">
+                        <img src="assets/images/after.png" alt="After Treatment at SkinClue">
                     </div>
                     <div class="ba-image ba-top-image">
-                        <img src="assets/images/before.png" alt="Before Treatment">
+                        <img src="assets/images/before.png" alt="Before Treatment at SkinClue">
                     </div>
                     <div class="ba-handle">
                         <div class="ba-handle-arrows">
@@ -328,32 +398,32 @@
     <section id="testimonials" class="testimonials section-padding">
         <div class="container text-center reveal-up">
             <span class="section-subtitle">Patient Stories</span>
+            <div class="gold-line"></div>
             <h2 class="section-title">What Our Patients Say</h2>
             
             <div class="testimonial-slider">
-                <div class="testimonial-card glass">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p class="review">"The laser hair reduction treatment at SkinClue completely changed my life. Painless and the staff is incredibly professional."</p>
+                <div class="testimonial-card">
+                    <div class="rating">★ ★ ★ ★ ★</div>
+                    <p class="review">"Dr. Sajin's approach is truly evidence-based. He explained everything clearly before starting my treatment. My skin has never looked better — the laser treatment results were beyond my expectations."</p>
                     <div class="patient-info">
-                        <img src="assets/images/patient_1.png" alt="Jessica M." class="patient-avatar-img">
-                        <h4>Jessica M.</h4>
+                        <img src="assets/images/patient_1.png" alt="Patient" class="patient-avatar-img">
+                        <h4>Priya M.</h4>
                     </div>
                 </div>
-                <!-- Note: In a real implementation with a JS slider, we'd have a track. Here we rely on CSS scroll snap for simplicity or a full JS implementation -->
-                <div class="testimonial-card glass">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p class="review">"Dr. Sarah is amazing! My acne cleared up in just 3 months following her protocol. Highly recommend SkinClue."</p>
+                <div class="testimonial-card">
+                    <div class="rating">★ ★ ★ ★ ★</div>
+                    <p class="review">"The PRP therapy for my hair loss was a game changer. Dr. Sajin's expertise in hair restoration is exceptional. The clinic is spotlessly clean and the staff incredibly professional."</p>
                     <div class="patient-info">
-                        <img src="assets/images/patient_2.png" alt="David L." class="patient-avatar-img">
-                        <h4>David L.</h4>
+                        <img src="assets/images/patient_2.png" alt="Patient" class="patient-avatar-img">
+                        <h4>Rahul K.</h4>
                     </div>
                 </div>
-                <div class="testimonial-card glass">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <p class="review">"The Hydra Facial here is next level. The clinic itself feels like a 5-star spa. Will definitely be coming back regularly."</p>
+                <div class="testimonial-card">
+                    <div class="rating">★ ★ ★ ★ ★</div>
+                    <p class="review">"Finally found a dermatologist who doesn't push unnecessary treatments. The hydrafacial and chemical peel combination gave me amazing results. Highly recommend SkinClue!"</p>
                     <div class="patient-info">
-                        <img src="assets/images/patient_3.png" alt="Amanda R." class="patient-avatar-img">
-                        <h4>Amanda R.</h4>
+                        <img src="assets/images/patient_3.png" alt="Patient" class="patient-avatar-img">
+                        <h4>Ananya R.</h4>
                     </div>
                 </div>
             </div>
@@ -363,11 +433,11 @@
     <!-- CTA Section -->
     <section class="cta section-padding text-center">
         <div class="container reveal-up">
-            <h2>Ready For Healthier Skin?</h2>
-            <p>Schedule your personalized consultation today and take the first step towards your skin goals.</p>
+            <h2>Ready For Your <span class="gold">Best Skin</span>?</h2>
+            <p>Schedule your personalized consultation today. Evidence-based care, transparent approach — your skin deserves the best.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-secondary">Book Appointment</a>
-                <a href="tel:#" class="btn btn-primary"><i class="ph-fill ph-phone"></i> Call Now</a>
+                <a href="#contact" class="btn btn-primary">Book Consultation <i class="ph ph-arrow-right"></i></a>
+                <a href="tel:#" class="btn btn-secondary"><i class="ph-fill ph-phone"></i> Call Now</a>
             </div>
         </div>
     </section>
@@ -377,34 +447,44 @@
         <div class="container">
             <div class="section-header text-center reveal-up">
                 <span class="section-subtitle">Got Questions?</span>
+                <div class="gold-line"></div>
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
             <div class="faq-accordion reveal-up delay-100">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Is the consultation fee adjustable against treatments?</h3>
+                        <h3>What is SkinClue Clinic?</h3>
                         <i class="ph ph-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, if you book a treatment package on the same day as your consultation, the consultation fee is waived.</p>
+                        <p>SkinClue Clinic is an advanced dermatology healthcare facility specializing in dermatology and cosmetic dermatology including hair restoration treatments. Our aim is to provide evidence-based knowledge to patients by qualified dermatologists without incessant and aimless treatment.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Are your laser treatments safe for all skin types?</h3>
+                        <h3>What services does SkinClue Clinic offer?</h3>
                         <i class="ph ph-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We use US-FDA approved technologies that have specific modes designed to be completely safe and effective for all skin types.</p>
+                        <p>Our services extend from clinical dermatology, cosmetic dermatology, laser treatments, hair restoration, hair transplantation, nail care, and anti-aging treatments. We provide comprehensive solutions for various skin and hair conditions as well as aesthetic concerns.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Do I need to take time off work after a chemical peel?</h3>
+                        <h3>Is SkinClue Clinic safe and clean for patients?</h3>
                         <i class="ph ph-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>It depends on the depth of the peel. We offer superficial 'lunchtime' peels with zero downtime, as well as deeper peels that may require a few days of recovery.</p>
+                        <p>Yes, we adhere to strict hygienic and sanitary protocols to make sure of a clean and safe environment for a flawless patient experience.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I schedule an appointment at SkinClue Clinic?</h3>
+                        <i class="ph ph-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Book an appointment to avoid any waiting or delays and enjoy a seamless experience at our clinic. We try our best to accommodate walk-ins subject to the availability of our dermatologists. You can book through our website, call us directly, or reach us on WhatsApp.</p>
                     </div>
                 </div>
             </div>
@@ -416,47 +496,54 @@
         <div class="container grid-2">
             <div class="contact-info reveal-left">
                 <span class="section-subtitle">Get In Touch</span>
+                <div class="gold-line" style="margin: 0 0 24px 0;"></div>
                 <h2 class="section-title">Contact Us</h2>
-                <p>We're here to answer your questions and help you schedule your visit.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 12px;">We're here to answer your questions and help you schedule your visit.</p>
                 
                 <ul class="contact-details">
-                    <li><i class="ph-fill ph-map-pin"></i> 123 Aesthetic Avenue, Premium District, NY 10001</li>
-                    <li><i class="ph-fill ph-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="ph-fill ph-map-pin"></i> SkinClue Clinic, Premium Location</li>
+                    <li><i class="ph-fill ph-phone"></i> +91 XXXXX XXXXX</li>
                     <li><i class="ph-fill ph-envelope"></i> hello@skinclue.com</li>
                     <li><i class="ph-fill ph-clock"></i> Mon-Sat: 10:00 AM - 8:00 PM</li>
                 </ul>
 
                 <div class="map-placeholder glass">
                     <i class="ph ph-map-trifold"></i>
-                    <p>Google Maps Integration Here</p>
+                    <p>Google Maps Coming Soon</p>
                 </div>
             </div>
             
-            <div class="contact-form-container glass reveal-right">
+            <div class="contact-form-container reveal-right">
                 <h3>Book a Consultation</h3>
+                <p class="form-subtitle">Fill in your details and we'll get back to you shortly.</p>
                 <form id="contactForm">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required aria-label="Name">
+                        <input type="text" class="form-control" placeholder="Your Name" required aria-label="Name" id="formName">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number" required aria-label="Phone Number">
+                        <input type="tel" class="form-control" placeholder="Phone Number" required aria-label="Phone Number" id="formPhone">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address" required aria-label="Email Address">
+                        <input type="email" class="form-control" placeholder="Email Address" required aria-label="Email Address" id="formEmail">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" required aria-label="Select Treatment">
+                        <select class="form-control" required aria-label="Select Treatment" id="formTreatment">
                             <option value="">Select Treatment Interest</option>
-                            <option value="Acne">Acne Treatment</option>
-                            <option value="Laser">Laser Hair Reduction</option>
-                            <option value="Anti-Aging">Anti Aging</option>
+                            <option value="Clinical Dermatology">Clinical Dermatology</option>
+                            <option value="Laser Treatment">Laser Treatments</option>
+                            <option value="Chemical Peel">Chemical Peels</option>
+                            <option value="HydraFacial">Hydrafacials</option>
+                            <option value="PRP">PRP Therapy</option>
+                            <option value="Hair Transplant">Hair Transplantation</option>
+                            <option value="Skin Surgery">Skin Surgeries</option>
+                            <option value="Skin Brightening">Skin Brightening</option>
                             <option value="Consultation">General Consultation</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" placeholder="Your Message (Optional)" aria-label="Message"></textarea>
+                        <textarea class="form-control" placeholder="Your Message (Optional)" aria-label="Message" id="formMessage"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+                    <button type="submit" class="btn btn-primary btn-full" id="formSubmit">Book Appointment <i class="ph ph-arrow-right"></i></button>
                 </form>
             </div>
         </div>
@@ -467,11 +554,11 @@
         <div class="container grid-4">
             <div class="footer-col reveal-up">
                 <img src="logo.png" alt="SkinClue Logo" class="footer-logo">
-                <p>Premium dermatology and aesthetic clinic offering world-class treatments for healthier, glowing skin.</p>
+                <p>Advanced Skin & Hair Clinic offering evidence-based dermatology, cosmetology, and hair restoration treatments.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
                     <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
                 </div>
             </div>
             <div class="footer-col reveal-up delay-100">
@@ -479,7 +566,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="#doctors">Our Doctor</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -487,19 +574,20 @@
             <div class="footer-col reveal-up delay-200">
                 <h4>Treatments</h4>
                 <ul>
-                    <li><a href="#">Laser Hair Reduction</a></li>
-                    <li><a href="#">Acne Scar Revision</a></li>
-                    <li><a href="#">Anti-Aging Solutions</a></li>
-                    <li><a href="#">Skin Brightening</a></li>
-                    <li><a href="#">Hair Loss Therapy</a></li>
+                    <li><a href="#treatments">Clinical Dermatology</a></li>
+                    <li><a href="#treatments">Laser Treatments</a></li>
+                    <li><a href="#treatments">Hair Transplantation</a></li>
+                    <li><a href="#treatments">PRP Therapy</a></li>
+                    <li><a href="#treatments">Chemical Peels</a></li>
+                    <li><a href="#treatments">Skin Surgeries</a></li>
                 </ul>
             </div>
             <div class="footer-col reveal-up delay-300">
                 <h4>Newsletter</h4>
-                <p>Subscribe to our newsletter for skincare tips and exclusive offers.</p>
+                <p>Subscribe for skincare tips and clinic updates.</p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Email Address" aria-label="Email for Newsletter">
-                    <button type="button" aria-label="Subscribe"><i class="ph ph-paper-plane-right"></i></button>
+                    <input type="email" placeholder="Email Address" aria-label="Email for Newsletter" id="newsletterEmail">
+                    <button type="button" aria-label="Subscribe" id="newsletterSubmit"><i class="ph ph-paper-plane-right"></i></button>
                 </div>
             </div>
         </div>
