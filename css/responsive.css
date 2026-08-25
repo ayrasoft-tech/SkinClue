@@ -95,6 +95,14 @@
 
 /* Mobile Navigation (max-width: 991px) */
 @media (max-width: 991px) {
+    :root {
+        --nav-height: 100px;
+    }
+
+    .navbar.scrolled {
+        height: 76px;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -209,8 +217,12 @@
     }
 
     .nav-logo img {
-        max-height: 55px;
-        max-width: 200px;
+        max-height: 80px;
+        max-width: 320px;
+    }
+
+    .navbar.scrolled .nav-logo img {
+        max-height: 50px;
     }
 
     .floating-actions {
@@ -227,12 +239,21 @@
 
 /* Small mobile (max-width: 480px) */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section-padding {
+        padding: 56px 0;
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        letter-spacing: -0.5px;
     }
     
     .section-title {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
     }
 
     .hero-badge {
@@ -242,6 +263,27 @@
 
     .btn {
         padding: 14px 28px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .doctor-bio {
+        padding: 20px;
+    }
+
+    .contact-form-container {
+        padding: 20px;
+    }
+
+    .testimonial-card {
+        padding: 24px;
+        min-width: 85vw;
+    }
+
+    .stat-box {
+        padding: 24px 16px;
+    }
+
+    .stat-box h3 {
+        font-size: 2rem;
     }
 }
