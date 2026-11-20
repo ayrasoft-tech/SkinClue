@@ -143,6 +143,21 @@
         transform: translateY(-7px) rotate(-45deg);
     }
 
+    /* Doctor profile collapses to single column on tablet/mobile */
+    .doctor-profile {
+        grid-template-columns: 1fr;
+    }
+
+    .doctor-profile-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+        padding: 48px 32px;
+    }
+
+    .doctor-profile-right {
+        padding: 40px 32px 48px;
+    }
+
     .doctor-bio-header {
         flex-direction: column;
         text-align: center;
@@ -214,6 +229,23 @@
 
     .doctor-bio {
         padding: 28px;
+    }
+
+    .doctor-profile-left {
+        padding: 32px 20px;
+    }
+
+    .doctor-profile-right {
+        padding: 28px 20px 36px;
+    }
+
+    .doctor-name-block h3 {
+        font-size: 1.8rem;
+    }
+
+    .doctor-cta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-logo img {

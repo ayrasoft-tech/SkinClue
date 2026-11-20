@@ -1,0 +1,118 @@
+# ============================================================
+# SkinClue – .htaccess
+# Domain: skinclue.in
+# ============================================================
+
+# ── Force HTTPS ──────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect HTTP → HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redirect www → non-www (after HTTPS is guaranteed)
+  RewriteCond %{HTTPS} on
+  RewriteCond %{HTTP_HOST} ^www\.skinclue\.in [NC]
+  RewriteRule ^ https://skinclue.in%{REQUEST_URI} [R=301,L]
+
+  # Canonical URL: strip trailing slash (except root)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [R=301,L]
+</IfModule>
+
+# ── Security Headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' unpkg.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; frame-src www.google.com;"
+</IfModule>
+
+# ── GZIP Compression ─────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/ld+json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ── Browser Caching ──────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images
+  ExpiresByType image/jpeg      "access plus 1 year"
+  ExpiresByType image/png       "access plus 1 year"
+  ExpiresByType image/gif       "access plus 1 year"
+  ExpiresByType image/webp      "access plus 1 year"
+  ExpiresByType image/svg+xml   "access plus 1 year"
+  ExpiresByType image/x-icon    "access plus 1 year"
+  ExpiresByType image/ico       "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/woff       "access plus 1 year"
+  ExpiresByType font/woff2      "access plus 1 year"
+  ExpiresByType font/ttf        "access plus 1 year"
+  ExpiresByType font/otf        "access plus 1 year"
+  ExpiresByType application/font-woff  "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # CSS & JavaScript
+  ExpiresByType text/css              "access plus 6 months"
+  ExpiresByType text/javascript       "access plus 6 months"
+  ExpiresByType application/javascript "access plus 6 months"
+
+  # HTML
+  ExpiresByType text/html             "access plus 1 hour"
+
+  # Data
+  ExpiresByType application/json      "access plus 0 seconds"
+  ExpiresByType application/xml       "access plus 0 seconds"
+  ExpiresByType text/xml              "access plus 0 seconds"
+
+  # Sitemap & robots
+  ExpiresByType application/xml       "access plus 1 day"
+  ExpiresByType text/plain            "access plus 1 day"
+
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# Cache-Control headers (complement mod_expires)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ico|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|otf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=15552000"
+  </FilesMatch>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ── Custom Error Pages ───────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ── Prevent Directory Listing ────────────────────────────────
+Options -Indexes
+
+# ── Block access to sensitive files ─────────────────────────
+<FilesMatch "(^\.htaccess|\.htpasswd|\.git|\.env|composer\.json|composer\.lock|package\.json|package-lock\.json)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>

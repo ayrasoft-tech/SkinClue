@@ -4,28 +4,28 @@
     /* Premium Dark & Gold Palette */
     --primary: #C9A96E;
     --primary-dark: #A88B56;
-    --primary-light: rgba(201, 169, 110, 0.12);
-    --primary-glow: rgba(201, 169, 110, 0.25);
+    --primary-light: rgba(201, 169, 110, 0.10);
+    --primary-glow: rgba(201, 169, 110, 0.22);
     --secondary: #FFFFFF;
-    --bg-dark: #0A0A0A;
-    --bg-section: #111111;
-    --bg-card: #1A1A1A;
-    --bg-card-hover: #222222;
+    --bg-dark: #080808;
+    --bg-section: #0F0F0F;
+    --bg-card: #161616;
+    --bg-card-hover: #1E1E1E;
     --text-primary: #F5F0E8;
-    --text-secondary: rgba(245, 240, 232, 0.7);
-    --text-muted: rgba(245, 240, 232, 0.45);
-    --accent-gradient: linear-gradient(135deg, #C9A96E 0%, #E8D5A3 50%, #C9A96E 100%);
+    --text-secondary: rgba(245, 240, 232, 0.68);
+    --text-muted: rgba(245, 240, 232, 0.4);
+    --accent-gradient: linear-gradient(135deg, #B8905A 0%, #E8D5A3 50%, #C9A96E 100%);
     --accent-gradient-hover: linear-gradient(135deg, #E8D5A3 0%, #C9A96E 100%);
-    --glass-bg: rgba(26, 26, 26, 0.65);
-    --glass-border: rgba(201, 169, 110, 0.15);
-    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 16px 48px rgba(201, 169, 110, 0.12);
-    --shadow-gold: 0 0 40px rgba(201, 169, 110, 0.08);
+    --glass-bg: rgba(22, 22, 22, 0.70);
+    --glass-border: rgba(201, 169, 110, 0.14);
+    --shadow-soft: 0 8px 40px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 20px 56px rgba(201, 169, 110, 0.10);
+    --shadow-gold: 0 0 48px rgba(201, 169, 110, 0.07);
     --border-radius: 16px;
     --border-radius-lg: 24px;
-    --border-radius-xl: 32px;
+    --border-radius-xl: 36px;
     --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --transition-fast: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-fast: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
     --nav-height: 160px;
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
@@ -182,36 +182,50 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dividers */
 .gold-line {
-    width: 60px;
+    width: 48px;
     height: 2px;
     background: var(--accent-gradient);
-    margin: 0 auto 24px;
+    margin: 0 auto 28px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.gold-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 2px;
+    background: #fff;
+    opacity: 0.3;
     border-radius: 2px;
 }
 
 /* Section Titles */
 .section-title {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
 }
 
 .section-subtitle {
     color: var(--primary);
     font-family: var(--font-body);
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 0.8rem;
-    margin-bottom: 12px;
+    letter-spacing: 5px;
+    font-size: 0.75rem;
+    margin-bottom: 14px;
     display: block;
 }
 
 .section-header {
-    margin-bottom: 72px;
+    margin-bottom: 80px;
 }
 
 .section-header p {
@@ -219,7 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 640px;
     margin: 0 auto;
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 /* ============================================
@@ -708,13 +722,27 @@ select.form-control option {
 
 .feature-card {
     background: var(--bg-card);
-    padding: 44px 32px;
-    border-radius: var(--border-radius);
+    padding: 48px 36px;
+    border-radius: var(--border-radius-lg);
     text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(201, 169, 110, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.07);
     position: relative;
     overflow: hidden;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover::after {
+    opacity: 1;
 }
 
 .feature-card::before {
@@ -947,7 +975,183 @@ select.form-control option {
     width: 100%;
 }
 
-/* Doctor Bio */
+/* ============================================
+   DOCTOR PREMIUM PROFILE
+   ============================================ */
+.doctor-profile {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    margin-top: 64px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(201, 169, 110, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.doctor-profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+}
+
+/* Left column */
+.doctor-profile-left {
+    background: linear-gradient(160deg, rgba(201,169,110,0.07) 0%, rgba(10,10,10,0.0) 100%);
+    border-right: 1px solid rgba(201, 169, 110, 0.08);
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.doctor-portrait-wrap {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+}
+
+.doctor-portrait-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0deg, rgba(201,169,110,0.15) 180deg, var(--primary) 360deg);
+    animation: portrait-spin 12s linear infinite;
+    z-index: 0;
+}
+
+@keyframes portrait-spin {
+    to { transform: rotate(360deg); }
+}
+
+.doctor-portrait-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--bg-card);
+    box-shadow: 0 0 48px rgba(201, 169, 110, 0.18);
+}
+
+.doctor-portrait-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor-portrait-badge {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--accent-gradient);
+    color: var(--bg-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+    box-shadow: 0 4px 16px rgba(201, 169, 110, 0.3);
+}
+
+.doctor-credentials {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.credential-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(201, 169, 110, 0.05);
+    border: 1px solid rgba(201, 169, 110, 0.08);
+    border-radius: 12px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.credential-item:hover {
+    background: rgba(201, 169, 110, 0.1);
+    border-color: rgba(201, 169, 110, 0.18);
+    color: var(--text-primary);
+}
+
+.credential-item i {
+    font-size: 1.1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+/* Right column */
+.doctor-profile-right {
+    padding: 56px 56px 56px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.doctor-name-block h3 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.doctor-name-block .qualification {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+}
+
+.doctor-role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 18px;
+    background: rgba(201, 169, 110, 0.08);
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    border-radius: 50px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.doctor-bio-text p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+.doctor-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+/* Legacy .doctor-bio kept for compatibility */
 .doctor-bio {
     background: var(--bg-card);
     border-radius: var(--border-radius-lg);
@@ -1105,12 +1309,26 @@ select.form-control option {
 }
 
 .stat-box {
-    padding: 36px 24px;
-    border-radius: var(--border-radius);
+    padding: 44px 24px;
+    border-radius: var(--border-radius-lg);
     text-align: center;
     background: var(--bg-card);
     border: 1px solid rgba(201, 169, 110, 0.08);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: var(--accent-gradient);
+    border-radius: 0 0 2px 2px;
 }
 
 .stat-box:hover {

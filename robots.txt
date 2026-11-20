@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /assets/images/patient_
+Sitemap: https://skinclue.in/sitemap.xml
+
+# Allow all major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
