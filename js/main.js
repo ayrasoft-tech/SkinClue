@@ -3,17 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     
-    if (hamburger) {
+    if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+            const isActive = hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
     }
 
     // Close menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
         if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
+        if (navMenu) {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }));
 
     // 2. Sticky Navbar Effect on Scroll

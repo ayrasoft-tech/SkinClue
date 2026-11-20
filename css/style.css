@@ -32,21 +32,17 @@
 }
 
 /* Reset & Base */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
-
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -56,6 +52,10 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    max-width: 100vw;
 }
 
 ul { list-style: none; }
@@ -448,6 +448,7 @@ select.form-control option {
     overflow: hidden;
     display: flex;
     align-items: center;
+    max-width: 100%;
 }
 
 .hero::before {
@@ -639,6 +640,8 @@ select.form-control option {
     filter: blur(60px);
     z-index: 0;
     opacity: 0.3;
+    pointer-events: none;
+    max-width: 100vw;
 }
 
 .shape-1 {
@@ -1535,6 +1538,7 @@ select.form-control option {
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
     position: relative;
     overflow: hidden;
+    max-width: 100%;
     border-top: 1px solid rgba(201, 169, 110, 0.08);
     border-bottom: 1px solid rgba(201, 169, 110, 0.08);
 }
@@ -1546,6 +1550,8 @@ select.form-control option {
     left: -50%;
     width: 200%;
     height: 200%;
+    max-width: 200%;
+    pointer-events: none;
     background: radial-gradient(ellipse, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
     animation: cta-glow 8s ease-in-out infinite;
 }
