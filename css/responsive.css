@@ -197,14 +197,18 @@ img, video, iframe {
 
     .navbar {
         height: var(--nav-height) !important;
-        background: rgba(8, 8, 8, 0.96) !important;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+        background: transparent !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
     }
 
     .navbar.scrolled {
         height: 72px !important;
+        background: rgba(8, 8, 8, 0.45) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(201, 169, 110, 0.12);
     }
 
     .nav-container {
