@@ -1,11 +1,17 @@
+# Robots.txt for SkinClue Clinic (https://skinclue.in)
 User-agent: *
 Allow: /
 Disallow: /assets/images/patient_
-Sitemap: https://skinclue.in/sitemap.xml
 
-# Allow all major crawlers
+# Allow Googlebot and Bingbot full crawl access
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+# XML Sitemap reference
+Sitemap: https://skinclue.in/sitemap.xml

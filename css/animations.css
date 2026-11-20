@@ -97,17 +97,6 @@
     transform: translateX(0);
 }
 
-/* Mobile optimization for reveal animations to prevent horizontal overflow */
-@media (max-width: 991px) {
-    .reveal-left, .reveal-right {
-        transform: translateY(30px);
-    }
-    
-    .reveal-left.active, .reveal-right.active {
-        transform: translateY(0);
-    }
-}
-
 .reveal-scale {
     opacity: 0;
     transform: scale(0.92);

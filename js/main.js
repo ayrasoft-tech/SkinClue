@@ -1,53 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
+    // 1. Mobile Menu Toggle with Backdrop Overlay & Scroll Lock
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            const isActive = hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.style.overflow = isActive ? 'hidden' : '';
+    const navOverlay = document.getElementById('navOverlay');
+
+    const openMenu = () => {
+        if (!hamburger || !navMenu) return;
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('active');
+        if (navOverlay) navOverlay.classList.add('active');
+        document.body.classList.add('nav-open');
+    };
+
+    const closeMenu = () => {
+        if (!hamburger || !navMenu) return;
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        document.body.classList.remove('nav-open');
+    };
+
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navMenu && navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
     }
 
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-        if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) {
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }));
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMenu);
+    }
+
+    // Close menu when clicking any nav link
+    document.querySelectorAll('.nav-link, .nav-btn').forEach(n => {
+        n.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
 
     // 2. Sticky Navbar Effect on Scroll
     const navbar = document.getElementById('navbar');
-    let lastScrollY = 0;
-    
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (navbar) {
+            if (currentScrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
-        
-        lastScrollY = currentScrollY;
-    });
+    }, { passive: true });
 
     // 3. Active Nav Link on Scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
     const updateActiveLink = () => {
-        const scrollY = window.scrollY + 150;
-        
+        const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 70;
+        const scrollY = window.scrollY + navHeight + 60;
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
@@ -59,89 +86,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-    // 4. FAQ Accordion Logic
+    // 4. FAQ Accordion Logic (Touch optimized)
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return;
+
         question.addEventListener('click', () => {
+            const isOpen = item.classList.contains('active');
+
             // Close other items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
                     const otherAnswer = otherItem.querySelector('.faq-answer');
-                    if(otherAnswer) otherAnswer.style.maxHeight = null;
+                    if (otherAnswer) otherAnswer.style.maxHeight = null;
                 }
             });
 
             // Toggle current item
-            item.classList.toggle('active');
             const answer = item.querySelector('.faq-answer');
-            if (item.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + "px";
+            if (!isOpen) {
+                item.classList.add('active');
+                if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
             } else {
-                answer.style.maxHeight = null;
+                item.classList.remove('active');
+                if (answer) answer.style.maxHeight = null;
             }
         });
     });
 
-    // 5. Contact Form Validation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let isValid = true;
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                } else {
-                    field.classList.remove('error');
-                }
-            });
-
-            if (isValid) {
-                const btn = contactForm.querySelector('button[type="submit"]');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="ph ph-spinner" style="animation: spin 1s linear infinite;"></i> Sending...';
-                btn.disabled = true;
-                btn.style.opacity = '0.7';
-
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="ph-fill ph-check-circle"></i> Appointment Requested!';
-                    btn.style.opacity = '1';
-                    contactForm.reset();
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                    }, 3000);
-                }, 1500);
-            }
-        });
-
-        // Remove error class on input
-        contactForm.querySelectorAll('.form-control').forEach(field => {
-            field.addEventListener('input', () => {
-                field.classList.remove('error');
-            });
-        });
-    }
-
-    // 6. Smooth scroll for anchor links
+    // 5. Smooth scroll for anchor links with dynamic header offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
+            if (targetId === '#' || targetId === '') return;
+
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 88;
-                const targetPosition = target.offsetTop - navHeight;
-                
+                const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 68;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -155,17 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function togglePublications() {
     const expanded = document.getElementById('pubExpanded');
     const toggle = document.getElementById('pubToggle');
-    
+    if (!expanded || !toggle) return;
+
     if (expanded.classList.contains('active')) {
         expanded.classList.remove('active');
-        toggle.innerHTML = 'View All Publications <i class="ph ph-caret-down"></i>';
+        toggle.innerHTML = 'View All Publications <i class="ph ph-caret-down" aria-hidden="true"></i>';
     } else {
         expanded.classList.add('active');
-        toggle.innerHTML = 'Show Less <i class="ph ph-caret-up"></i>';
+        toggle.innerHTML = 'Show Less <i class="ph ph-caret-up" aria-hidden="true"></i>';
     }
 }
-
-// Add spin animation CSS dynamically
-const spinStyle = document.createElement('style');
-spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
-document.head.appendChild(spinStyle);

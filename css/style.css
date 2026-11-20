@@ -32,17 +32,21 @@
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: hidden;
-    width: 100%;
 }
 
 body {
@@ -52,10 +56,6 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-    max-width: 100vw;
 }
 
 ul { list-style: none; }
@@ -249,16 +249,15 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
     display: flex;
     align-items: center;
-    background: transparent;
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 10, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
     height: 90px;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.15);
 }
 
 .nav-container {
@@ -449,7 +448,6 @@ select.form-control option {
     overflow: hidden;
     display: flex;
     align-items: center;
-    max-width: 100%;
 }
 
 .hero::before {
@@ -641,8 +639,6 @@ select.form-control option {
     filter: blur(60px);
     z-index: 0;
     opacity: 0.3;
-    pointer-events: none;
-    max-width: 100vw;
 }
 
 .shape-1 {
@@ -1539,7 +1535,6 @@ select.form-control option {
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
     position: relative;
     overflow: hidden;
-    max-width: 100%;
     border-top: 1px solid rgba(201, 169, 110, 0.08);
     border-bottom: 1px solid rgba(201, 169, 110, 0.08);
 }
@@ -1551,8 +1546,6 @@ select.form-control option {
     left: -50%;
     width: 200%;
     height: 200%;
-    max-width: 200%;
-    pointer-events: none;
     background: radial-gradient(ellipse, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
     animation: cta-glow 8s ease-in-out infinite;
 }
@@ -1669,15 +1662,44 @@ select.form-control option {
 
 .contact-details {
     margin: 36px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .contact-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .contact-details {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
 }
 
 .contact-details li {
     display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 20px;
-    font-size: 1.05rem;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 0;
+    font-size: 0.95rem;
     color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(201, 169, 110, 0.08);
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+.contact-details li:hover {
+    border-color: rgba(201, 169, 110, 0.22);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .contact-details i {
@@ -1694,23 +1716,73 @@ select.form-control option {
     flex-shrink: 0;
 }
 
-.map-container {
-    border-radius: var(--border-radius);
+.map-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    border: 1px solid rgba(201, 169, 110, 0.1);
-    height: 220px;
+    border: 1px solid rgba(201, 169, 110, 0.12);
+    box-shadow: var(--shadow-soft);
+    margin-top: 24px;
+}
+
+.map-container {
+    border-radius: 0;
+    overflow: hidden;
+    border: none;
+    height: 400px;
+    width: 100%;
+}
+
+.map-action-bar {
+    background: var(--bg-card);
+    padding: 16px 24px;
+    border-top: 1px solid rgba(201, 169, 110, 0.1);
+    text-align: center;
 }
 
 .map-container iframe {
     width: 100%;
     height: 100%;
     border: none;
-    filter: grayscale(0.8) contrast(1.1) brightness(0.8);
+    filter: grayscale(0.6) contrast(1.1) brightness(0.85);
     transition: var(--transition);
 }
 
 .map-container:hover iframe {
-    filter: grayscale(0.3) contrast(1) brightness(0.9);
+    filter: grayscale(0.1) contrast(1) brightness(0.95);
+}
+
+.clinic-address-footer {
+    font-style: normal;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin: 16px 0 20px;
+}
+
+.footer-dir-link {
+    color: var(--primary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 0.85rem;
+}
+
+.footer-dir-link:hover {
+    color: #E8D5A3;
+    gap: 10px;
+}
+
+.medical-disclaimer {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 16px;
+    line-height: 1.6;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .map-placeholder {
