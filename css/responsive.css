@@ -115,19 +115,29 @@ body.nav-open {
 
     .nav-logo {
         flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .nav-logo img {
         height: auto;
-        max-height: 42px;
-        max-width: 180px;
+        max-height: 38px;
+        max-width: 48px;
         width: auto;
         object-fit: contain;
     }
 
+    .nav-brand-text {
+        font-size: 1.35rem;
+    }
+
     .navbar.scrolled .nav-logo img {
-        max-height: 38px;
-        max-width: 160px;
+        max-height: 32px;
+    }
+
+    .navbar.scrolled .nav-brand-text {
+        font-size: 1.22rem;
     }
 
     /* Hamburger Button (44x44px touch target) */
@@ -854,8 +864,12 @@ body.nav-open {
     }
 
     .nav-logo img {
-        max-width: 150px;
-        max-height: 38px;
+        max-width: 40px;
+        max-height: 34px;
+    }
+
+    .nav-brand-text {
+        font-size: 1.18rem;
     }
 
     .spec-grid {

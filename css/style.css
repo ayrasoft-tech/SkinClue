@@ -270,13 +270,38 @@ h1, h2, h3, h4, h5, h6 {
 .nav-logo {
     display: flex;
     align-items: center;
+    gap: 12px;
     position: relative;
+    text-decoration: none;
+}
+
+.nav-brand-text {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.nav-brand-text .gold {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-logo:hover .nav-brand-text {
+    filter: drop-shadow(0 0 12px rgba(201, 169, 110, 0.35));
 }
 
 .nav-logo img {
     height: auto;
-    max-height: 140px;
-    max-width: 560px;
+    max-height: 52px;
+    max-width: 65px;
     object-fit: contain;
     filter: brightness(1.05) contrast(1.05);
     transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -284,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.scrolled .nav-logo img {
-    max-height: 60px;
+    max-height: 42px;
 }
 
 .nav-logo::after {
@@ -2032,4 +2057,25 @@ select.form-control option {
 
 .footer-bottom a:hover {
     color: var(--primary);
+}
+
+.footer-watermark {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 12px 0 8px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.footer-watermark a {
+    color: var(--primary) !important;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: var(--transition);
+}
+
+.footer-watermark a:hover {
+    color: #E8D5A3 !important;
+    text-shadow: 0 0 10px rgba(201, 169, 110, 0.4);
 }
